@@ -30,6 +30,14 @@
         
       </tr>
     </table>
+    <table>
+      <tr><th>sector</th><th></th></tr>
+      <tr>
+        <tr v-for="(sector, index) in sectors" :key="index">
+         <td> {{sector}}</td>
+         <td><button @click="selectAnimaList(sector)">see animal list</button></td>
+      </tr>
+    </table>
   </div>
 </template>
 
@@ -91,6 +99,17 @@ export default {
         selectedSector: this.selectedSector
       }
       this.AnimalList.push(newAnimal);
+    },
+    selectAnimaList(sector){
+      const animalList = [];
+      this.AnimalList.forEach(animal => {
+        if(animal.selectedSector === sector){
+          animalList.push(`${animal.name} ${animal.sector}`);
+        }
+
+      });
+        alert(animalList.toString());
+
     }
   }
 

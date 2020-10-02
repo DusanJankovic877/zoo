@@ -9,7 +9,8 @@
       <tr v-for="(animal, index) in AnimalList" :key="index">
         <td>{{animal.sort}}</td>
         <td>{{animal.name}}</td>
-        <td>{{animal.dateOfBirth.toLocaleString()}}</td>
+        <td v-if="animal.dateOfBirth">{{animal.dateOfBirth.toLocaleString()}}</td>
+        <td v-else>unknown</td>
         
       </tr>
     </table>
@@ -19,6 +20,7 @@
 <script>
 export default {
   name: 'AnimalList',
+  // dateOfBirth: null,
   data() {
     return {
       AnimalList: [
@@ -45,8 +47,8 @@ export default {
         },
         {
           sort: 'Slon',
-          name: 'Dambo',
-          dateOfBirth: new Date(2020, 1, 6)
+          name: 'Dambo'
+          
         }
       ]
     }

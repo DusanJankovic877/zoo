@@ -11,6 +11,7 @@
         <td>{{animal.name}}</td>
         <td v-if="animal.dateOfBirth">{{animal.dateOfBirth.toLocaleString()}}</td>
         <td v-else>unknown</td>
+        <td><button @click="removeAnimal(index)">remove</button></td>
         
       </tr>
     </table>
@@ -51,6 +52,11 @@ export default {
           
         }
       ]
+    }
+  },
+  methods: {
+    removeAnimal(index) {
+      this.AnimalList.splice(index, 1);
     }
   }
 
